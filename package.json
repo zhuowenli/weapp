@@ -1,0 +1,27 @@
+{
+  "name": "weapp",
+  "version": "1.0.0",
+  "description": "搭建适合前端开发的小程序架构！",
+  "main": "index.html",
+  "scripts": {
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhuowenli/weapp.git"
+  },
+  "keywords": [
+    "weapp",
+    "wechat",
+    "weixin",
+    "wxapp",
+    "小程序",
+    "微信"
+  ],
+  "author": "卓文理 <531840344@qq.com> (http://www.zhuowenli.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhuowenli/weapp/issues"
+  },
+  "homepage": "https://github.com/zhuowenli/weapp#readme"
+}
