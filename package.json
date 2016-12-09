@@ -4,7 +4,12 @@
   "description": "搭建适合前端开发的小程序架构！",
   "main": "index.html",
   "scripts": {
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "dev": "gulp",
+    "lint": "gulp lint",
+    "module": "gulp module",
+    "generate": "gulp generate",
+    "build": "cross-env NODE_ENV=production && gulp build"
   },
   "repository": {
     "type": "git",
@@ -23,5 +28,14 @@
   "bugs": {
     "url": "https://github.com/zhuowenli/weapp/issues"
   },
-  "homepage": "https://github.com/zhuowenli/weapp#readme"
+  "homepage": "https://github.com/zhuowenli/weapp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-notify": "^2.2.0",
+    "require-dir": "^0.3.1"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6"
+  }
 }
