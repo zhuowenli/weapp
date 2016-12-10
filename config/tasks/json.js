@@ -5,6 +5,7 @@
  */
 'use strict';
 
+const path = require('path');
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins')
 const handleErrors = require('../lib/handleErrors');
@@ -25,7 +26,7 @@ const jsonTask = () => {
         .pipe(plugins.jsonminify())
         .on('error', handleErrors)
         .pipe(plugins.sourcemaps.write('.'))
-        .pipe(gulp.dest(dest));
+        .pipe(gulp.dest(destPath));
 };
 
 gulp.task('compile:json', jsonTask);

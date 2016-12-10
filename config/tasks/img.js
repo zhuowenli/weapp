@@ -5,6 +5,7 @@
  */
 'use strict';
 
+const path = require('path');
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins')
 const handleErrors = require('../lib/handleErrors');

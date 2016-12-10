@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "bluebird": "^3.4.6",
-    "es6-promise": "^4.0.5"
+    "es6-promise": "^4.0.5",
+    "sass-core": "^1.0.0"
   }
 }
