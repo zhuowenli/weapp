@@ -13,9 +13,6 @@ const config = require('../config.json');
 
 const plugins = gulpLoadPlugins();
 
-const env = process.env.NODE_ENV || 'development';
-const isProduction = () => env === 'production';
-
 const imgTask = () => {
     const module = process.env.MODULE_NAME;
     const imgPath = path.join(module, config.img.src);

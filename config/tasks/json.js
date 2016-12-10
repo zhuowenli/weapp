@@ -14,6 +14,7 @@ const config = require('../config.json');
 const plugins = gulpLoadPlugins();
 
 const env = process.env.NODE_ENV || 'development';
+const isDev = () => env !== 'production';
 const isProduction = () => env === 'production';
 
 const jsonTask = () => {
@@ -22,10 +23,10 @@ const jsonTask = () => {
     const destPath = path.join(module, config.dest);
 
     return gulp.src([jsonPath])
-        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.if(isDev, plugins.sourcemaps.init()))
         .pipe(plugins.jsonminify())
         .on('error', handleErrors)
-        .pipe(plugins.sourcemaps.write('.'))
+        .pipe(plugins.if(isDev, plugins.sourcemaps.write('.')))
         .pipe(gulp.dest(destPath));
 };
 

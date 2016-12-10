@@ -14,6 +14,7 @@ const config = require('../config.json');
 const plugins = gulpLoadPlugins();
 
 const env = process.env.NODE_ENV || 'development';
+const isDev = () => env !== 'production';
 const isProduction = () => env === 'production';
 
 const xmlTask = () => {
@@ -22,7 +23,7 @@ const xmlTask = () => {
     const destPath = path.join(module, config.dest);
 
     return gulp.src(xmlPath)
-        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.if(isDev, plugins.sourcemaps.init()))
         .pipe(plugins.if(isProduction, plugins.htmlmin({
             collapseWhitespace: true,
             // collapseBooleanAttributes: true,
@@ -37,7 +38,7 @@ const xmlTask = () => {
         .pipe(plugins.rename({
             extname: config.xml.extname
         }))
-        .pipe(plugins.sourcemaps.write('.'))
+        .pipe(plugins.if(isDev, plugins.sourcemaps.write('.')))
         .pipe(gulp.dest(destPath));
 };
 

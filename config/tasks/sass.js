@@ -14,6 +14,7 @@ const config = require('../config.json');
 const plugins = gulpLoadPlugins();
 
 const env = process.env.NODE_ENV || 'development';
+const isDev = () => env !== 'production';
 const isProduction = () => env === 'production';
 
 const sassTask = () => {
@@ -22,7 +23,7 @@ const sassTask = () => {
     const destPath = path.join(module, config.dest);
 
     return gulp.src(sassPath)
-        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.if(isDev, plugins.sourcemaps.init()))
         .pipe(plugins.sass())
         .on('error', handleErrors)
         .pipe(plugins.if(isProduction, plugins.cssnano({
@@ -31,7 +32,7 @@ const sassTask = () => {
         .pipe(plugins.rename({
             extname: config.sass.extname
         }))
-        .pipe(plugins.sourcemaps.write('.'))
+        .pipe(plugins.if(isDev, plugins.sourcemaps.write('.')))
         .pipe(gulp.dest(destPath));
 };
 
