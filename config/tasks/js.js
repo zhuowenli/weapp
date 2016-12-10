@@ -13,12 +13,12 @@ const config = require('../config.json');
 
 const plugins = gulpLoadPlugins();
 
-const env = process.env.NODE_ENV || 'development';
-const isDev = () => env !== 'production';
-const isProduction = () => env === 'production';
 
 const jsTask = () => {
+    const env = process.env.NODE_ENV || 'development';
     const module = process.env.MODULE_NAME;
+    const isDev = () => env !== 'production';
+    const isProduction = () => env === 'production';
     const jsPath = path.join(module, config.js.src);
     const destPath = path.join(module, config.dest);
 

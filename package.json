@@ -9,7 +9,7 @@
     "lint": "gulp lint",
     "module": "gulp module",
     "generate": "gulp generate",
-    "build": "cross-env NODE_ENV=production && gulp build"
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
