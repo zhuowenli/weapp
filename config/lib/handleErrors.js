@@ -7,7 +7,7 @@
 
 const gulpNotify = require('gulp-notify');
 
-module.exports =  (errorObject) => {
+module.exports = function(errorObject) {
     gulpNotify.onError(errorObject.toString()
           .split(': ')
           .join(':\n'))
