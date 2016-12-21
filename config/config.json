@@ -1,5 +1,7 @@
 {
-    "modules": ["demo"],
+    "modules": [
+        "demo"
+    ],
     "xml": {
         "src": "src/**/*.xml",
         "extname": ".wxml"
